@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from "react"
 import { Animated, Dimensions, Text, View } from "react-native"
+import { textStyle } from "./style"
 
 interface BlockProp {
     blockStyle: any,
+    width: number
+    height: number
     defaultPosition: {
         left: number,
         top: number
     },
 }
 export function BlockItem(props: BlockProp) {
-    
 
-    
-    const [isTouch,setIsTouch] = useState(false)
+    const [isTouch, setIsTouch] = useState(false)
 
     const [location, setLocation] = useState({
         left: -100,
@@ -20,28 +21,22 @@ export function BlockItem(props: BlockProp) {
     })
     useEffect(() => {
         setLocation(props.defaultPosition)
-    },[])
-    const [innerLocation,setInnerLocation] = useState({
-        top:-1000,
-        left:-1000
+    }, [])
+    const [innerLocation, setInnerLocation] = useState({
+        top: -1000,
+        left: -1000
     })
 
-    function touchStart(event:any){
+    function touchStart(event: any) {
         // console.log('event: ', event);
         const { pageX, pageY } = event.nativeEvent
         setInnerLocation({
-            left:pageX,
-            top:pageY
+            left: pageX,
+            top: pageY
         })
         setIsTouch(true)
-        setItemStyle((old) => {
-            return {
-                ...old,
-                borderWidth:4
-            }
-        })
     }
-    function touchEnd(){
+    function touchEnd() {
         console.log(isTouch);
         setIsTouch(false)
         setItemStyle((old) => {
@@ -88,31 +83,37 @@ export function BlockItem(props: BlockProp) {
             // console.log('isTouch');
         }
     }
-    
-    
     const [itemStyle, setItemStyle] = useState({})
-    
 
-    
+
+
     useEffect(() => {
-        if(location.left === -100 && location.top === -100){
+        if (location.left === -100 && location.top === -100) {
             setItemStyle({
                 ...props.blockStyle,
-                ...props.defaultPosition
+                ...props.defaultPosition,
+                borderWidth: isTouch ? 4 : 2
             })
         }
         else {
             setItemStyle({
                 ...props.blockStyle,
-                ...location
+                ...location,
+                borderWidth: isTouch ? 4 : 2
             })
         }
-      
+
         // console.log(itemStyle);
-    }, [props.blockStyle, props.defaultPosition,location])
+    }, [props.blockStyle, props.defaultPosition, location])
 
     return (
         <Animated.View style={itemStyle} onTouchEnd={touchEnd} onTouchMove={touchMove} onTouchStart={touchStart}>
+            <View style={textStyle.width}>
+                <Text>{props.width}</Text>
+            </View>
+            <View style={textStyle.height}>
+                <Text>{props.height}</Text>
+            </View>
         </Animated.View>
     )
 }

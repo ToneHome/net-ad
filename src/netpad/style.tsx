@@ -1,5 +1,12 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions, StyleProp, ViewStyle } from "react-native";
+const uiWidthPx = 1200; // 设计稿宽
+const uiHeightPx = 844; // 设计稿高
+const deviceWidthDp = Dimensions.get('screen').width; // 当前设备的宽
+const deviceHeightDp = Dimensions.get('screen').height; // 当前设备的高
 
+export const pTd = (uiElePx: number): number => {
+    return (deviceHeightDp / uiHeightPx) * uiElePx;
+};
 
 export const mainViewStyle = StyleSheet.create({
     mainStyle: {
@@ -11,39 +18,43 @@ export const mainViewStyle = StyleSheet.create({
 })
 
 const rate = 7
-const blockStyle = StyleSheet.create({
+export const blockStyle = StyleSheet.create({
     backBlock: {
         position: 'absolute',
-        display:'flex',
-        alignItems:'center',
-        justifyContent:'center',
-        borderWidth:2,
-        borderColor:'blue'
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderWidth: 2,
+        borderColor: 'blue'
     },
     block1_1: {
-        width: 10 * rate,
-        height: 10 * rate,
-        backgroundColor: '#EAAF70',
+        width: pTd(8 * rate),
+        height: pTd(8 * rate),
+        backgroundColor: '#F2B6B4',
     },
     block2_2: {
-        width: 20 * rate,
-        height: 20 * rate,
+        width: pTd(16 * rate),
+        height: pTd(16 * rate),
         backgroundColor: "#86ADEC"
     },
     block3_1: {
-        width: 30 * rate,
-        height: 10 * rate,
-        backgroundColor: "#EAB6E7"
+        width: pTd(24 * rate),
+        height: pTd(8 * rate),
+        backgroundColor: "#BEADF9"
     },
     block2_1: {
-        width: 20 * rate,
-        height: 10 * rate,
+        width: pTd(16 * rate),
+        height: pTd(8 * rate),
         backgroundColor: "#94dba7"
     },
     block3_2: {
-        width: 30 * rate,
-        height: 20 * rate,
+        width: pTd(24 * rate),
+        height: pTd(16 * rate),
         backgroundColor: "#EBE799"
+    },
+    blockInfo:{
+        position:'absolute',
+        fontSize:20
     }
 })
 
@@ -57,4 +68,35 @@ export const block2_1 = { ...blockStyle.backBlock, ...blockStyle.block2_1 } //St
 export const block3_2 = { ...blockStyle.backBlock, ...blockStyle.block3_2 }//StyleSheet.compose(blockStyle.backBlock, blockStyle.block3_2)
 
 
+export const textStyle = StyleSheet.create({
+    width:{
+        position:'absolute',
+        bottom:5,
+        left:'40%',
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center'
+    },
+    height:{
+        position:'absolute',
+        right:5,
+        top:'40%',
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center'
+    }
+})
+
+
+export const titleStyle = StyleSheet.create({
+    postion:{
+        position:'absolute',
+        left:10,
+        top:10,
+    },
+    font:{
+        fontSize:24,
+        fontWeight:'bold'
+    }
+})
 // export const mainView = StyleSheet.compose(mainViewStyle.mainStyle)
