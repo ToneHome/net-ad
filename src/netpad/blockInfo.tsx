@@ -15,6 +15,7 @@ export function BlockInfo(props:InfoProp){
     const [infoStyle,setInfoStyle] = useState({})
 
     useEffect(() => {
+        console.log(blockStyle.blockInfo);
         setInfoStyle({
             ...blockStyle.blockInfo,
             ...props.positionStyle
@@ -23,7 +24,7 @@ export function BlockInfo(props:InfoProp){
 
     return (
         <View style={infoStyle}>
-            <Text>{props.index}：({props.num})</Text>
+            <Text style={blockStyle.blockInfoText}>({props.index}) {props.num} 张</Text>
         </View>
     )
 }

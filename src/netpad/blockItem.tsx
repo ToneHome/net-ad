@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Animated, Dimensions, Text, View } from "react-native"
-import { textStyle } from "./style"
+import { pTd, textStyle } from "./style"
 
 interface BlockProp {
     blockStyle: any,
@@ -109,10 +109,10 @@ export function BlockItem(props: BlockProp) {
     return (
         <Animated.View style={itemStyle} onTouchEnd={touchEnd} onTouchMove={touchMove} onTouchStart={touchStart}>
             <View style={textStyle.width}>
-                <Text>{props.width}</Text>
+                <Text style={{fontSize:pTd(14)}}>{props.width}</Text>
             </View>
             <View style={textStyle.height}>
-                <Text>{props.height}</Text>
+                <Text style={{fontSize:pTd(14)}}>{props.height}</Text>
             </View>
         </Animated.View>
     )

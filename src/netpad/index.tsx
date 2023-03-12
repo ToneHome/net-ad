@@ -24,7 +24,7 @@ export function NetPadMain(){
     })
 
     const bottom = pTd(650)
-    const infoTextBottom = pTd(680)
+    const infoTextBottom = pTd(700)
     return <View style={mainViewStyle.mainStyle}>
         <View style={titleStyle.postion}>
             <Text style={titleStyle.font}>拼面板（单位：米）</Text>

@@ -54,7 +54,10 @@ export const blockStyle = StyleSheet.create({
     },
     blockInfo:{
         position:'absolute',
-        fontSize:20
+    },
+    blockInfoText:{
+        //  color:'red',
+        fontSize:pTd(20)
     }
 })
 
@@ -72,7 +75,7 @@ export const textStyle = StyleSheet.create({
     width:{
         position:'absolute',
         bottom:5,
-        left:'40%',
+        left:'48%',
         display:'flex',
         alignItems:'center',
         justifyContent:'center'
@@ -91,11 +94,11 @@ export const textStyle = StyleSheet.create({
 export const titleStyle = StyleSheet.create({
     postion:{
         position:'absolute',
-        left:10,
-        top:10,
+        left:pTd(10),
+        top:pTd(10),
     },
     font:{
-        fontSize:24,
+        fontSize:pTd(30),
         fontWeight:'bold'
     }
 })
