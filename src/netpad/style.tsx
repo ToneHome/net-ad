@@ -28,29 +28,29 @@ export const blockStyle = StyleSheet.create({
         borderColor: 'blue'
     },
     block1_1: {
-        width: pTd(8 * rate),
-        height: pTd(8 * rate),
-        backgroundColor: '#F2B6B4',
+        width: pTd(12 * rate),
+        height: pTd(12 * rate),
+        backgroundColor: '#f1eedd',
     },
     block2_2: {
         width: pTd(16 * rate),
         height: pTd(16 * rate),
-        backgroundColor: "#86ADEC"
+        backgroundColor: "#ded4b8"
     },
     block3_1: {
         width: pTd(24 * rate),
         height: pTd(8 * rate),
-        backgroundColor: "#BEADF9"
+        backgroundColor: "#dfe5ed"
     },
     block2_1: {
         width: pTd(16 * rate),
         height: pTd(8 * rate),
-        backgroundColor: "#94dba7"
+        backgroundColor: "#e0ebca"
     },
     block3_2: {
         width: pTd(24 * rate),
         height: pTd(16 * rate),
-        backgroundColor: "#EBE799"
+        backgroundColor: "#ececc5"
     },
     blockInfo:{
         position:'absolute',

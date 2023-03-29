@@ -37,12 +37,12 @@ export function BlockItem(props: BlockProp) {
         setIsTouch(true)
     }
     function touchEnd() {
-        console.log(isTouch);
+        // console.log(isTouch);
         setIsTouch(false)
         setItemStyle((old) => {
             return {
                 ...old,
-                borderWidth: 2
+                borderWidth: pTd(2)
             }
         })
     }
@@ -61,13 +61,9 @@ export function BlockItem(props: BlockProp) {
             if (realX >= 0 && realY >= 0) {
 
                 const changeX = pageX - innerLocation.left
-                console.log('changeX: ', changeX);
                 const changeY = pageY - innerLocation.top
-                console.log('changeY: ', changeY);
 
                 setLocation(({ left, top }) => {
-                    console.log('top: ', top);
-                    console.log('left: ', left);
                     return {
                         left: left + changeX,
                         top: top + changeY
@@ -92,14 +88,14 @@ export function BlockItem(props: BlockProp) {
             setItemStyle({
                 ...props.blockStyle,
                 ...props.defaultPosition,
-                borderWidth: isTouch ? 4 : 2
+                borderWidth: isTouch ? pTd(4) : pTd(2)
             })
         }
         else {
             setItemStyle({
                 ...props.blockStyle,
                 ...location,
-                borderWidth: isTouch ? 4 : 2
+                borderWidth: isTouch ? pTd(4) : pTd(2)
             })
         }
 

@@ -24,7 +24,7 @@ export function BlockInfo(props:InfoProp){
 
     return (
         <View style={infoStyle}>
-            <Text style={blockStyle.blockInfoText}>({props.index}) {props.num} 张</Text>
+            <Text style={blockStyle.blockInfoText}>({props.index} 号) {props.num} 张</Text>
         </View>
     )
 }
